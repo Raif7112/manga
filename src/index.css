@@ -1,1 +1,174 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cream: #FDF6EC;
+  --color-cream-dark: #F5EBD8;
+  --color-warm-50: #FEFBF6;
+  --color-warm-100: #FDF6EC;
+  --color-warm-200: #F5EBD8;
+  --color-warm-300: #E8D5B5;
+  --color-warm-400: #D4B896;
+  --color-warm-500: #C49A6C;
+  --color-warm-600: #A67B4B;
+  --color-warm-700: #8B5E34;
+  --color-warm-800: #6B4423;
+  --color-warm-900: #4A2E17;
+  --color-warm-950: #2D1A0D;
+  --color-espresso: #3C2415;
+  --color-mocha: #5C3D2E;
+  --color-latte: #C8A882;
+  --color-foam: #F8F0E3;
+  --color-gold: #C9A96E;
+  --color-gold-dark: #A88B4A;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--color-cream);
+    color: var(--color-espresso);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  ::selection {
+    background-color: var(--color-warm-300);
+    color: var(--color-warm-900);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-warm-700), var(--color-warm-800));
+    color: var(--color-cream);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-warm-800), var(--color-warm-900));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 46, 23, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-warm-700);
+    border: 2px solid var(--color-warm-400);
+    padding: 0.625rem 1.375rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-warm-600);
+    background: var(--color-warm-100);
+  }
+
+  .card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(74, 46, 23, 0.06), 0 1px 3px rgba(74, 46, 23, 0.04);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(74, 46, 23, 0.12), 0 4px 8px rgba(74, 46, 23, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--color-warm-200);
+    border-radius: 0.5rem;
+    background: white;
+    color: var(--color-espresso);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+  }
+
+  .input-field:focus {
+    border-color: var(--color-warm-500);
+    box-shadow: 0 0 0 3px rgba(196, 154, 108, 0.15);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 26, 13, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 50;
+  }
+
+  .slide-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 480px;
+    background: var(--color-cream);
+    z-index: 51;
+    box-shadow: -8px 0 24px rgba(45, 26, 13, 0.15);
+    overflow-y: auto;
+  }
+
+  .roast-indicator {
+    display: flex;
+    gap: 3px;
+  }
+
+  .roast-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-warm-300);
+  }
+
+  .roast-dot.filled {
+    background: var(--color-warm-700);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
